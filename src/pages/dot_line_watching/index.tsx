@@ -9,13 +9,13 @@ function DotLineWatchingPage() {
     useEffect(() => {
         let k = 21;
         // CanvasController.getCanvas("main").drawLine(new Vector2(40, 40), new Vector2(100, 200), {color: "red"});
-        let points = cutLine(new Vector2(20, 20), new Vector2(20, 500), k);
+        let points = cutLine(new Vector2(20, 20), new Vector2(20, 480), k);
         points.pop();
-        points.push(...cutLine(new Vector2(20, 500), new Vector2(500, 500), k));
+        points.push(...cutLine(new Vector2(20, 480), new Vector2(480, 480), k));
         points.pop();
-        points.push(...cutLine(new Vector2(500, 500), new Vector2(500, 20), k));
+        points.push(...cutLine(new Vector2(480, 480), new Vector2(480, 20), k));
         points.pop();
-        points.push(...cutLine(new Vector2(500, 20), new Vector2(20, 20), k));
+        points.push(...cutLine(new Vector2(480, 20), new Vector2(20, 20), k));
         points.pop();
 
         let finalPoints: Vector2[] = [];
@@ -46,11 +46,13 @@ function DotLineWatchingPage() {
         CanvasController.getCanvas("main").drawLine(new Vector2(500, 500), new Vector2(500, 20));
         CanvasController.getCanvas("main").drawLine(new Vector2(500, 20), new Vector2(20, 20));
         new Drawer(400, finalPoints);
-
     })
     return (
-        <div className="App">
-            <Canvas id="main"/>
+        <div className="App" style={{
+            display: "grid",
+            justifyItems:"center"
+        }}>
+            <Canvas id="main" width={500} height={500}/>
         </div>
     )
 }

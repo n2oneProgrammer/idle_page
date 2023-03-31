@@ -11,8 +11,11 @@ export class CanvasController {
         return CanvasController.canvases[id];
     }
 
-    public static registerCanvas(id: string, canvas: React.RefObject<HTMLCanvasElement>) {
-        CanvasController.canvases[id] = new CanvasController(canvas);
+    public static registerCanvas(id: string, canvas: React.RefObject<HTMLCanvasElement>, canvasSize?: Vector2) {
+        if (canvasSize == null) {
+            canvasSize = new Vector2(800, 600);
+        }
+        CanvasController.canvases[id] = new CanvasController(canvas, canvasSize);
         return CanvasController.canvases[id];
     }
 
@@ -20,15 +23,15 @@ export class CanvasController {
         delete CanvasController.canvases[id];
     }
 
-    constructor(canvas: React.RefObject<HTMLCanvasElement>) {
+    constructor(canvas: React.RefObject<HTMLCanvasElement>, canvasSize: Vector2) {
         this.DOM_Element = canvas;
-        this.onLoad()
+        this.onLoad(canvasSize)
     }
 
-    onLoad() {
+    onLoad(canvasSize: Vector2) {
         this.ctx = this.DOM_Element.current?.getContext("2d") as CanvasRenderingContext2D;
-        this.DOM_Element.current!.width = 800;
-        this.DOM_Element.current!.height = 600;
+        this.DOM_Element.current!.width = canvasSize.x;
+        this.DOM_Element.current!.height = canvasSize.y;
     }
 
     drawLine(start: Vector2, end: Vector2, property: LineProperty = {}) {
