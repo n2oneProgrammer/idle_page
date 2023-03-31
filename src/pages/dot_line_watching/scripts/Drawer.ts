@@ -18,11 +18,12 @@ export class Drawer {
         this.lastTime = Date.now();
         this.isFocus = true;
         this.update();
-        document.addEventListener("focus", () => {
+        window.addEventListener("focus", () => {
+            console.log("Asd")
             this.isFocus = true;
             this.lastTime = Date.now();
         });
-        document.addEventListener("blur", () => {
+        window.addEventListener("blur", () => {
             this.isFocus = false;
         })
     }

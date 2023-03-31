@@ -1,0 +1,10 @@
+.menu a {
+    color: white;
+    text-decoration: none;
+}
+.menuLink {
+    color: white;
+}
+.menuLink:hover {
+    background: #777;
+}

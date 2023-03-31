@@ -44,7 +44,6 @@ export class CanvasController {
 
     clearCanvas() {
         if (this.ctx == undefined) return;
-        console.log("KURWAAA");
         this.ctx.clearRect(0, 0, 800, 600);
     }
 }

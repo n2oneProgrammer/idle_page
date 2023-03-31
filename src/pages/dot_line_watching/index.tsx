@@ -22,8 +22,6 @@ function DotLineWatchingPage() {
         let i1 = 0;
         let i2 = points.length - 1;
         for (let i = 0; i < k; i++) {
-
-            console.log(i1, (i1 + 1) % points.length, i2, (i2 + points.length - 1) % points.length);
             finalPoints.push(points[i1])
             finalPoints.push(points[(i1 + 1) % points.length])
             finalPoints.push(points[i2])
@@ -35,7 +33,6 @@ function DotLineWatchingPage() {
         i1 = 3 * k;
         i2 = 3 * k - 1;
         for (let i = 0; i < k; i++) {
-            console.log(i1, (i1 + 1) % points.length, i2, (i2 + points.length - 1) % points.length);
             finalPoints.push(points[i1])
             finalPoints.push(points[(i1 + 1) % points.length])
             finalPoints.push(points[i2])
@@ -44,10 +41,10 @@ function DotLineWatchingPage() {
             i2 = (i2 + points.length - 2) % points.length;
         }
         CanvasController.getCanvas("main").clearCanvas();
-        // CanvasController.getCanvas("main").drawLine(new Vector2(20, 20), new Vector2(20, 500));
-        // CanvasController.getCanvas("main").drawLine(new Vector2(20, 500), new Vector2(500, 500));
-        // CanvasController.getCanvas("main").drawLine(new Vector2(500, 500), new Vector2(500, 20));
-        // CanvasController.getCanvas("main").drawLine(new Vector2(500, 20), new Vector2(20, 20));
+        CanvasController.getCanvas("main").drawLine(new Vector2(20, 20), new Vector2(20, 500));
+        CanvasController.getCanvas("main").drawLine(new Vector2(20, 500), new Vector2(500, 500));
+        CanvasController.getCanvas("main").drawLine(new Vector2(500, 500), new Vector2(500, 20));
+        CanvasController.getCanvas("main").drawLine(new Vector2(500, 20), new Vector2(20, 20));
         new Drawer(400, finalPoints);
 
     })
