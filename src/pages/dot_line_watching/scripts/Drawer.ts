@@ -8,6 +8,7 @@ export class Drawer {
     private lastTime: number;
     private targets: Vector2[];
     private isFocus: boolean;
+    private isDestroy: boolean;
 
     constructor(speed: number, targets: Vector2[]) {
         CanvasController.getCanvas("main").clearCanvas();
@@ -17,6 +18,7 @@ export class Drawer {
         this.speed = speed;
         this.lastTime = Date.now();
         this.isFocus = true;
+        this.isDestroy = false;
         this.update();
         window.addEventListener("focus", () => {
             console.log("Asd")
@@ -27,8 +29,12 @@ export class Drawer {
             this.isFocus = false;
         })
     }
-
+    onDestroy() {
+        this.isFocus = false;
+        this.isDestroy = true;
+    }
     update() {
+        if(this.isDestroy) return;
         let delta = Date.now() - this.lastTime;
         this.lastTime = Date.now();
         this.tick(delta / 1000);

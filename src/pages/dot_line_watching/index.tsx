@@ -45,7 +45,8 @@ function DotLineWatchingPage() {
         CanvasController.getCanvas("main").drawLine(new Vector2(20, 500), new Vector2(500, 500));
         CanvasController.getCanvas("main").drawLine(new Vector2(500, 500), new Vector2(500, 20));
         CanvasController.getCanvas("main").drawLine(new Vector2(500, 20), new Vector2(20, 20));
-        new Drawer(400, finalPoints);
+        let d = new Drawer(400, finalPoints);
+        return ()=>d.onDestroy();
     })
     return (
         <div className="App" style={{
