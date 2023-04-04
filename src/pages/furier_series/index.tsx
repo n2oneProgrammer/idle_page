@@ -6,7 +6,7 @@ import ArmInputRow from "./components/ArmInputRow";
 
 function FurierSeriesPage() {
 
-    const [arms, setArms] = useState<ArmElement[]>([{id: 1, speed: 1, radius: 2, angle: 2}]);
+    const [arms, setArms] = useState<ArmElement[]>([{id: 1, speed: 0, radius: 50, angle: 0}]);
     useEffect(() => {
         console.log(arms)
         let f = new FurierSeriesAlgorithm(arms.map(a => Object.assign({}, a)));
@@ -48,7 +48,7 @@ function FurierSeriesPage() {
                 }}/>)}
                 <Button variant="contained" style={{width: "100%", marginTop: 30}} onClick={() => {
                     let id = arms[arms.length - 1].id;
-                    let temp = [...arms, {id: id + 1, angle: 0, speed: 0, radius: 1}];
+                    let temp = [...arms, {id: id + 1, angle: 0, speed: 0, radius: 60}];
                     setArms(temp);
                 }}>Add</Button>
             </Box>
