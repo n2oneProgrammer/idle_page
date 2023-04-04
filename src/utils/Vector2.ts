@@ -39,4 +39,10 @@ export class Vector2 {
     normalize() {
         return this.mul(1 / this.length());
     }
+
+    static fromAngle(angle: number, length: number) {
+        let x = length * Math.cos(angle);
+        let y = length * Math.sin(angle);
+        return new Vector2(x, y);
+    }
 }

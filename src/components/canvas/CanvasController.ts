@@ -45,6 +45,21 @@ export class CanvasController {
         this.ctx.stroke();
     }
 
+    drawCircle(center: Vector2, radius: number, fill: boolean = false, property: LineProperty = {}) {
+        if (this.ctx == undefined) return;
+        this.ctx.lineWidth = property.width || 2;
+        this.ctx.strokeStyle = property.color || "white";
+        if (fill) {
+            this.ctx.fillStyle = property.color || "white";
+        }
+        this.ctx.beginPath();
+        this.ctx.arc(center.x, center.y, radius, 0, 2 * Math.PI);
+        this.ctx.stroke();
+        if (fill) {
+            this.ctx.fill();
+        }
+    }
+
     clearCanvas() {
         if (this.ctx == undefined) return;
         this.ctx.clearRect(0, 0, 800, 600);

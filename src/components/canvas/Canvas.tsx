@@ -7,9 +7,10 @@ export interface ICanvas {
     id: string;
     width?: number;
     height?: number;
+    style?: any;
 }
 
-export function Canvas({id, width, height}: ICanvas) {
+export function Canvas({id, width, height, style}: ICanvas) {
     const canvas = React.createRef<HTMLCanvasElement>();
     const [, setController] = useState<CanvasController>();
     if (width == null && height == null) {
@@ -28,6 +29,6 @@ export function Canvas({id, width, height}: ICanvas) {
     }, [])
 
     return (
-        <canvas ref={canvas}></canvas>
+        <canvas ref={canvas} style={style}></canvas>
     )
 }

@@ -6,6 +6,7 @@ import React from "react";
 import Layout from "./components/layout/Layout";
 import MainPage from "./pages/main";
 import DotLineWatchingPage from "./pages/dot_line_watching";
+import FurierSeriesPage from "./pages/furier_series";
 
 const router = createBrowserRouter([
     {
@@ -17,6 +18,11 @@ const router = createBrowserRouter([
         path: "/idle_page/square",
         element:
             <Layout><DotLineWatchingPage></DotLineWatchingPage></Layout>
+    },
+    {
+        path: "/idle_page/furier",
+        element:
+            <Layout><FurierSeriesPage></FurierSeriesPage></Layout>
     },
     {
         path: "*",
